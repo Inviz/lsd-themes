@@ -22,6 +22,12 @@ window
     :shadow-blur 1px
     :shadow-offset-y 1px
     :shadow-color hsb(0, 0, 0)
+    
+  input[type=text], input[type=checkbox], input[type=range], select
+    +focusable
+    
+  select button
+    :shadow-color false
   
   #header
     :corner-radius-top-left inherit

@@ -1,8 +1,24 @@
+!glow_color = hsb(212, 58, 93)
+
+= focus-glow(!blur = 5, !color = !glow_color)
+  :shadow-color= !color
+  :shadow-blur= !blur
+  :shadow-offset-y 0
+  :stroke-color= !color
+  
+= focusable
+  &:focused
+    +focus-glow
+  
 = box-fill
   :fill-color hsb(0, 0, 22)
   :reflection-color gradient("hsb(0, 0, 100, 0.23), hsb(0, 0, 100, 0)")
   &:active
     :reflection-color gradient("hsb(0, 0, 100, 0.2), hsb(0, 0, 100, 0.25)")
+    
+= box-transparent
+  :fill-color hsb(0, 0, 22, 0.7)
+  :reflection-color gradient("hsb(0, 0, 100, 0.20), hsb(0, 0, 100, 0)")
     
 = box-outline
   :stroke-width 1px
@@ -10,3 +26,7 @@
   
   &:active
     :stroke-color gradient(hsb(0, 0, 50), hsb(0, 0, 20))
+    
+    
+input[type=range]#tint
+  :fill-color gradient("{0: hsb(301, 56, 62), 0.5: hsb(120, 5, 53), 1: hsb(120, 49, 57)}, 0")

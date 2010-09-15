@@ -1,0 +1,25 @@
+input[type="range"]
+  :height 3px
+  :margin-top 6px
+  :margin-bottom 6px
+  :min-width 70px
+  :width auto
+  :cursor pointer
+  :corner-radius 1
+  +box-outline
+  :stroke-color gradient(hsb(0, 0, 5, 0.5), hsb(0, 0, 45, 0.5))
+  thumb
+    :height 7px
+    :width 8px
+    :margin-top -3px
+    +box-fill
+    +box-outline
+    :arrow-width 6
+    :arrow-height 4
+    :corner-radius 1
+    :arrow-side bottom
+    :arrow-position 5
+    :fill-color hsb(0, 0, 41)
+    :reflection-color gradient(hsb(0, 0, 100, 0.2), hsb(0, 0, 100, 0))
+    :stroke-color gradient("{0: hsb(0, 0, 79), 0.1: hsb(0, 0, 60), 1: hsb(0, 0, 38)}")
+

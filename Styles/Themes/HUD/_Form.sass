@@ -7,7 +7,7 @@ form
   select
   
   &.two-column
-    label, input, select, textarea
+    label, input[type=range], input[type=text], select, textarea
       :float left
       
     label
@@ -15,8 +15,20 @@ form
       :clear both
       :text-align right
       :margin-right 16px
-      :line-height 20px
+      .container:element
+        :line-height 18px
       :width 85px
       +emboss
       :color #dbdbdb
       
+      &.inline
+        :float none
+        :clear none
+        :text-align left
+        +inline-block
+        :vertical-align middle
+        :margin-right 0
+        :margin-left 5px
+        :width auto
+        .container:element
+          :line-height 16px

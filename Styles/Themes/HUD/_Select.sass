@@ -1,20 +1,32 @@
 select
   :height 16px
   :width auto
-  :min-width 50px
+  :min-width 70px
   +box-outline
-  +box-fill
+  +box-transparent
   :corner-radius-top-left 3px
   :corner-radius-top-right 3px
   :corner-radius-bottom-left 3px
   :corner-radius-bottom-right 3px
   
+  
+  > .container:element
+    :font-size 11px
+    :line-height 16px
+    :padding 0 5px
+    :color #eaeaea
+  
   button
-    :shadow-color false
     :background-color false
     :reflection-color false
+    :fill-color false
     :corner-radius-top-right inherit
     :corner-radius-bottom-right inherit
     :float right
     :width 16px
     :height 16px
+    :glyph glyph("triangleDown")
+    :glyph-scale 0.5
+    :glyph-top 6px
+    :glyph-left 6px
+    :glyph-color hsb(0, 0, 100)

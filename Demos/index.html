@@ -71,9 +71,7 @@
       	  'section#header': {
             'button#toggler[shy]': {},
       	    'menu[type=toolbar][hoverable][shy]#buttons': {
-              'button#close': {},
-      	      'button#minimize': {},
-              'button#maximize': {}
+              'button#close': {}
       	    },
       	    '#title[container]': {}
       	  },
@@ -82,16 +80,20 @@
         	    'section#first.first': [
         	      {'label[for=appearance]': 'Text input:'},
         	      'input#appearance',
+        	    ],
+        	    'section#firstandhalf': [
         	      {'label[for=appearance]': 'Slider:'},
-          	    'input[type=range]#count'
+          	    'input[type=range]#count',
+        	      {'label[for=tint]': 'Tint:'},
+          	    'input[type=range]#tint'
         	    ],
         	    'section#third': [
         	      {'label[for=selectbox]': 'Selectbox:'},
         	      'select#selectbox'
         	    ],
-        	    'section#fourth': [
-        	      {'label[for=checkbox]': 'Checkbox:'},
-        	      'input[type=checkbox]#checkbox'
+        	    'section#fourth.centered': [
+      	        'input[type=checkbox]#checkbox',
+        	      {'label.inline[for=checkbox]': 'You\'re feeiling alright?'}
         	    ],
         	    'section#buttons.last': {
         	      'button#reset': 'Reset',
@@ -124,12 +126,12 @@
 	      redraws: ART.Widget.Paint.redraws,
 	      widgets: ART.Widget.count
 	    }
-	    if (window.console && console.profile) console.profile('Network render')
+	    if (window.console && console.profile) console.profile('HUD render')
 	    $z = new HUD();
 			$z.content.setStyles({minHeight: 180, width: 200})
 	    $z.inject($d);	
 	    $z.setStyles({top: 50, left: 50, zIndex: 400})
-			$z.header.title.setContent('medline2.dump')
+			$z.header.title.setContent('HUD Window')
 			//$z.fit();
 	    
 	    
@@ -142,7 +144,7 @@
 	      redraws: counter.current.redraws - counter.old.redraws,
 	      widgets: counter.current.widgets - counter.old.widgets,
 	    }
-	    if (window.console && console.profile) console.profileEnd('Network render')
+	    if (window.console && console.profile) console.profileEnd('HUD render')
 	    console.info('Widgets: ', counter.delta.widgets, 'Redraws: ', counter.delta.redraws)
 	    //$p.fit();
 		});
