@@ -1,0 +1,16 @@
+input[type=checkbox]
+  :width 10px
+  :height 10px
+  :line-height 16px
+  :vertical-align middle
+  :corner-radius 3
+  +box-outline
+  +box-fill
+  :glyph-color false
+    
+  &:checked
+    :glyph glyph("checkMark")
+    :glyph-top 0px
+    :glyph-left 1px
+    :glyph-scale 1.2
+    :glyph-color hsb(0, 0, 100)

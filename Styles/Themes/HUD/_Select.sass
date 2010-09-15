@@ -1,7 +1,20 @@
 select
-  :height 18px
+  :height 16px
   :width auto
+  :min-width 50px
+  +box-outline
+  +box-fill
+  :corner-radius-top-left 3px
+  :corner-radius-top-right 3px
+  :corner-radius-bottom-left 3px
+  :corner-radius-bottom-right 3px
   
   button
-    :width 18px
-    :height 18px
+    :shadow-color false
+    :background-color false
+    :reflection-color false
+    :corner-radius-top-right inherit
+    :corner-radius-bottom-right inherit
+    :float right
+    :width 16px
+    :height 16px

@@ -38,12 +38,83 @@
 	<link rel="art stylesheet" href="../../lsd-examples/Demos/Assets/Styles/Widgets.css">
 	<link rel="art stylesheet" href="../../lsd-examples/Demos/Assets/Styles/Widgets.css">
 	-->
+	
+	<style>
+	  html, body {
+	    background: url(hztp://img.skitch.com/20100913-cddxp3qi29bphck9iuartyce8b.png);
+	  }
+	</style>
 	<script>
 	  window.addEvent('domready', function() {
   		
   		ART.Sheet.decompile('art', function() {
   		  
   		//ART.Sheet.compile();
+  		
+  		
+  		var HUD = new Class({  
+      	Includes: [
+          ART.Application,
+      	  ART.Widget.Trait.Draggable,
+      	  ART.Widget.Trait.Resizable,
+      	  ART.Widget.Trait.ResizableContainer,
+      	  ART.Widget.Trait.Fitting
+      	],
+
+        States: {
+          'minified': ['minify', 'enlarge', 'mutate']
+        },
+
+        expression: "window.hud#hud",
+
+      	layout: {
+      	  'section#header': {
+            'button#toggler[shy]': {},
+      	    'menu[type=toolbar][hoverable][shy]#buttons': {
+              'button#close': {},
+      	      'button#minimize': {},
+              'button#maximize': {}
+      	    },
+      	    '#title[container]': {}
+      	  },
+      	  'section#content[container][scrollable]': {
+      	    'form.two-column#appearance': {
+        	    'section#first.first': [
+        	      {'label[for=appearance]': 'Text input:'},
+        	      'input#appearance',
+        	      {'label[for=appearance]': 'Slider:'},
+          	    'input[type=range]#count'
+        	    ],
+        	    'section#third': [
+        	      {'label[for=selectbox]': 'Selectbox:'},
+        	      'select#selectbox'
+        	    ],
+        	    'section#fourth': [
+        	      {'label[for=checkbox]': 'Checkbox:'},
+        	      'input[type=checkbox]#checkbox'
+        	    ],
+        	    'section#buttons.last': {
+        	      'button#reset': 'Reset',
+        	    }
+      	    },
+    	      'glyph[name=drag-handle][at=bottom right]#handle': {}
+    	    }
+      	},
+
+      	options: {
+      	  resizer: {
+      	    crop: true
+      	  }
+      	},
+
+      	getHandle: function() {
+      	  return $(this.content.handle)
+      	}
+
+      });
+      
+  		
+  		
   		
       if (window.$d) return;
       $d = new ART.Document
@@ -54,12 +125,12 @@
 	      widgets: ART.Widget.count
 	    }
 	    if (window.console && console.profile) console.profile('Network render')
-	    $z = new ART.Application.Browser();
+	    $z = new HUD();
+			$z.content.setStyles({minHeight: 180, width: 200})
 	    $z.inject($d);	
 	    $z.setStyles({top: 50, left: 50, zIndex: 400})
 			$z.header.title.setContent('medline2.dump')
-			$z.content.setContent(new Element('div', {'html': 'Orange box of truth (250x100)', 'styles': {width: 250, height: 100}}))
-			$z.fit();
+			//$z.fit();
 	    
 	    
       

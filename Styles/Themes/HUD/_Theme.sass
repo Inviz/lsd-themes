@@ -1,0 +1,12 @@
+= box-fill
+  :fill-color hsb(0, 0, 22)
+  :reflection-color gradient("hsb(0, 0, 100, 0.23), hsb(0, 0, 100, 0)")
+  &:active
+    :reflection-color gradient("hsb(0, 0, 100, 0.2), hsb(0, 0, 100, 0.25)")
+    
+= box-outline
+  :stroke-width 1px
+  :stroke-color gradient(hsb(0, 0, 57), hsb(0, 0, 33))
+  
+  &:active
+    :stroke-color gradient(hsb(0, 0, 50), hsb(0, 0, 20))

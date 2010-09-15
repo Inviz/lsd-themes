@@ -1,3 +1,20 @@
-input, textarea
+input[type=text], textarea
   :height 18px
-  :width 170px
+  :width auto
+  
+input[type=text]
+  +box-outline
+  +box-fill
+  :width 70px
+
+input input:element, textarea textarea:element
+  :border 0
+  :line-height 14px
+  :font-size 12px
+  :padding-top 3px
+  :padding-left 4px
+  :font-family Helvetica
+  :background none
+  :display block
+  :outline none
+  :color #fff
