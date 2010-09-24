@@ -28,12 +28,15 @@ window
     
   select button
     :shadow-color false
+    
+  &:focused #header  
+    :reflection-color gradient("{0: hsb(0, 0, 75, 0.20), 0.5: hsb(0, 0, 75, 0.25), 0.55: hsb(0, 0, 0, 0), 1: hsb(0, 0, 0, 0)}")
+    
   
   #header
     :corner-radius-top-left inherit
     :corner-radius-top-right inherit
     :background-color hsb(216, 0, 38, 0.8)
-    :reflection-color gradient("{0: hsb(0, 0, 75, 0.20), 0.5: hsb(0, 0, 75, 0.25), 0.55: hsb(0, 0, 0, 0), 1: hsb(0, 0, 0, 0)}")
     :height 18px
     :line-height 18px
     #title
