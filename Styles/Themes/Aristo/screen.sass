@@ -1,0 +1,42 @@
+//sass Widgets.sass > Widgets.css
+//sass /Users/invizko/Sites/art.dev/Styles/Widgets.sass /Users/invizko/Sites/art.dev/Demos/Assets/Styles/Widgets.css
+
+@import Mixin/Base
+@import Themes/Aristo/Theme
+@import Themes/Aristo/Button
+@import Themes/Aristo/Container
+@import Themes/Aristo/Form
+@import Themes/Aristo/Menu/Toolbar
+@import Themes/Aristo/Menu/List
+@import Themes/Aristo/Menu/Context
+@import Themes/Aristo/Panel
+@import Themes/Aristo/Scrollbar
+@import Themes/Aristo/Section
+@import Themes/Aristo/Select
+@import Themes/Aristo/Input
+@import Themes/Aristo/Input/Checkbox
+@import Themes/Aristo/Input/Combo
+@import Themes/Aristo/Input/Date
+@import Themes/Aristo/Input/Radio
+@import Themes/Aristo/Input/Range
+@import Themes/Aristo/Input/Search
+@import Themes/Aristo/Input/Text
+@import Themes/Aristo/Window
+
+svg
+  :display block
+  
+v\:*
+  :background transparent
+    
+*
+  :shadow-blur 0
+  
+.art:element
+  +clearfix
+  
+.art
+  &.window
+    svg
+      ~ *:element, .container
+        :position relative  

@@ -1,0 +1,35 @@
+form
+  
+  label
+  
+  input
+  
+  select
+  
+  &.two-column
+    label, input[type=range], input[type=text], select, textarea
+      :float left
+  
+    label
+      :float left
+      :clear both
+      :text-align right
+      :margin-right 16px
+      .container:element
+        :line-height 22px
+        :font-size 14px
+        :font-weight bold
+      :width 85px
+      :color #333
+
+      &.inline
+        :float none
+        :clear none
+        :text-align left
+        +inline-block
+        :vertical-align middle
+        :margin-right 0
+        :margin-left 5px
+        :width auto
+        .container:element
+          :line-height 16px

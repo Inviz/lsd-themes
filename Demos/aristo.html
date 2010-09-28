@@ -32,8 +32,19 @@
 	<script src="../../lsd-examples/Scripts/includes.js"></script>
 	<!-- <script src="../Scripts/lsd.js"></script> -->
   
-	<link rel="art stylesheet" href="./Assets/Styles/Themes/HUD/screen.css">
+	<link rel="art stylesheet" href="./Assets/Styles/Themes/Aristo/screen.css">
+	<!-- <link rel="art stylesheet" href="./Assets/Styles/Themes/Aristo/screen.css"> -->
+  <!-- 
+	<link rel="art stylesheet" href="../../lsd-examples/Demos/Assets/Styles/Widgets.css">
+	<link rel="art stylesheet" href="../../lsd-examples/Demos/Assets/Styles/Widgets.css">
+	<link rel="art stylesheet" href="../../lsd-examples/Demos/Assets/Styles/Widgets.css">
+	-->
 	
+	<style>
+	  html, body {
+	    background: url(hztp://img.skitch.com/20100913-cddxp3qi29bphck9iuartyce8b.png);
+	  }
+	</style>
 	<script>
 	  window.addEvent('domready', function() {
   		
@@ -42,12 +53,22 @@
   		//ART.Sheet.compile();
   		
   		
-  		var HUD = new Class({  
+  		
+      if (window.$d) return;
+      $d = new ART.Document
+  		
+	    var counter = {}
+	    counter.old = {
+	      redraws: ART.Widget.Paint.redraws,
+	      widgets: ART.Widget.count
+	    }
+	    
+	    
+	    
+	    var Aristo = new Class({  
       	Includes: [
           ART.Application,
       	  ART.Widget.Trait.Draggable,
-      	  ART.Widget.Trait.Resizable,
-      	  ART.Widget.Trait.ResizableContainer,
       	  ART.Widget.Trait.Fitting,
       	  Widget.Trait.Focus
       	],
@@ -58,13 +79,14 @@
       	  }
       	},
 
-        expression: "window.hud",
+        expression: "window.aristo",
 
       	layout: {
       	  'section#header': {
-            'button#toggler[shy]': {},
       	    'menu[type=toolbar][hoverable][shy]#buttons': {
-              'button#close': {}
+              'button#close': {},
+              'button#minimize': {},
+              'button#maximize': {}
       	    },
       	    '#title[container]': {}
       	  },
@@ -76,9 +98,7 @@
         	    ],
         	    'section#firstandhalf': [
         	      {'label[for=appearance]': 'Slider:'},
-          	    'input[type=range]#count',
-        	      {'label[for=tint]': 'Tint:'},
-          	    'input[type=range]#tint'
+          	    'input[type=range]#count'
         	    ],
         	    'section#third': [
         	      {'label[for=selectbox]': 'Selectbox:'},
@@ -88,8 +108,10 @@
       	        'input[type=checkbox]#checkbox',
         	      {'label.inline[for=checkbox]': 'You\'re feeiling alright?'}
         	    ],
-        	    'section#buttons.last': {
-        	      'button#reset': 'Reset',
+        	    'section#buttons.last[hoverable]': {
+        	      'button#reset.first': 'Reset',
+        	      'button#revert.grey': 'Revert',
+        	      'button#apply:disabled.last': 'Apply'
         	    }
       	    },
     	      'glyph[name=drag-handle][at=bottom right]#handle': {}
@@ -108,25 +130,17 @@
 
       });
       
-  		
-  		
-  		
-      if (window.$d) return;
-      $d = new ART.Document
-  		
-	    var counter = {}
-	    counter.old = {
-	      redraws: ART.Widget.Paint.redraws,
-	      widgets: ART.Widget.count
-	    }
-	    if (window.console && console.profile) console.profile('HUD render')
-	    $z = new HUD();
-			$z.content.setStyles({minHeight: 205, width: 200})
-	    $z.inject($d);	
-	    $z.setStyles({top: 50, left: 50, zIndex: 400})
-			$z.header.title.setContent('HUD Window')
-	    if (window.console && console.profile) console.profileEnd('HUD render')
-			//$z.fit();
+	    
+	    
+	    if (window.console && console.profile) console.profile('Aristo render')
+	    $a = new Aristo();
+			$a.content.setStyles({minHeight: 205, width: 300})
+	    $a.inject($d);	
+	    $a.setStyles({top: 50, left: 50, zIndex: 400})
+			$a.header.title.setContent('Aristo')
+	    if (window.console && console.profile) console.profileEnd('Aristo render')
+	    
+	    
 	    
 	    
 	    

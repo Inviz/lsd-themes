@@ -85,7 +85,7 @@ padding-bottom: 5px;
 -art-corner-radius-top-left: 3px;
 -art-corner-radius-top-right: 3px;
 -art-corner-radius-bottom-left: 3px;
--art-corner-radius-top-right: 3px; }
+-art-corner-radius-bottom-right: 3px; }
 .art.menu[type=context].is-active {
   -art-stroke-color: "[hsb(0, 0, 50), hsb(0, 0, 20)]"; }
 .art.menu[type=context] .art.option > .container {
@@ -93,6 +93,9 @@ padding-bottom: 5px;
   font-size: 11px;
   padding: 0 5px;
   line-height: 16px; }
+.art.menu[type=context] .art.option.is-chosen > .container, .art.menu[type=context] .art.option.is-selected > .container {
+  color: white;
+  background: #cccccc; }
 
 .art.scrollbar {
 height: 16px;

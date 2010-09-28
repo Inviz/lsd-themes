@@ -1,0 +1,71 @@
+window    
+  :shadow-blur 15
+  :shadow-offset-y 2
+  :shadow-color hsb(0, 0, 20)
+  :display inline-block
+  :vertical-align top
+  :width auto
+  :height auto
+  :corner-radius-top-right 10px
+  :corner-radius-top-left 10px
+  :font-family Arial
+  
+  
+  #header
+    :corner-radius-top-right inherit
+    :corner-radius-top-left inherit
+    :fill-color gradient(hsb(0, 0, 92), hsb(0, 0, 76))
+    :border-bottom 1px solid rgb(151, 151, 151)
+    :line-height 24px
+    
+    #title
+      :float left
+      :text-align center
+      :z-index 10
+      :width 100%
+      .container:element
+        :font-size 12px
+        :line-height 24px
+        :font-weight bold
+        +dark-emboss
+    
+    #buttons
+      :float left
+      :padding 0 10px
+      :z-index 20
+      :line-height 25px
+      &:hover
+        button
+          :fill-color gradient(hsb(0, 0, 54), hsb(0, 0, 52))
+          
+      button
+        +inline-block
+        :margin-right 4px
+        :height 12px
+        :width 12px
+        :margin-top 6px
+        :corner-radius 6px
+        :vertical-align top
+        :fill-color gradient(hsb(0, 0, 54), hsb(0, 0, 72))
+        :shadow-offset-y 1px
+        :stroke-color gradient(hsb(0, 0, 52), hsb(0, 0, 72))
+        :shadow-color hsb(0, 0, 96)
+        :glyph-color hsb(0, 0, 100, 0.8)
+        :glyph-scale 1
+        :glyph-top 0
+        :glyph-left 0
+        &#close
+          :glyph glyph("smallCross")
+        &#minimize
+          :glyph glyph("smallMinus")
+        &#maximize
+          :glyph glyph("smallPlus")
+      
+    #toggler
+      :float right
+    
+  #content
+    :background #fff
+    
+  #handle  
+    :glyph glyph("resize")

@@ -1,0 +1,38 @@
+!glow_color = hsb(212, 58, 93)
+
+= focus-glow(!blur = 8, !color = !glow_color)
+  :shadow-color= !color
+  :shadow-blur= !blur
+  :shadow-offset-y 0
+  :stroke-color= !color
+  
+= focusable
+  &:focused
+    +focus-glow
+    
+= gradient-fill(!hue = 202, !sat = 35)
+  :fill-color gradient("{0: hsb(" + !hue + ", " + (!sat * 0.3) + ", 98), 0.076: hsb(" + !hue + ", " + (!sat * 0.3) + ", 98), 0.0761: hsb(" + !hue + ", " + (!sat * 0.6) + ", 97), 1: hsb(" + !hue + ", " + !sat + ", 79)}")
+
+= inverted-gradient-fill(!hue = 202, !sat = 35, !bri = 98)
+  :fill-color gradient("{0: hsb(" + !hue + ", " + !sat + ", 79), 0.934: hsb(" + !hue + ", " + (!sat * 0.6) + ", " + (!bri * 0.98) + "), 0.935: hsb(" + !hue + ", " + (!sat * 0.3) + ", " + !bri + "), 1: hsb(" + !hue + ", " + (!sat * 0.3) + ", " + !bri + ")}")
+    
+= reflection(!tone = "hsb(0, 0, 100, 0.4)")
+  :reflection-color gradient("{0: hsb(0, 0, 100, 0.9), 0.08: " + !tone + ", 0.95: hsb(0, 0, 100, 0)}")
+  
+= box-fill
+  :fill-color hsb(0, 0, 22)
+  :reflection-color gradient("hsb(0, 0, 100, 0.23), hsb(0, 0, 100, 0)")
+  &:active
+    :reflection-color gradient("hsb(0, 0, 100, 0.2), hsb(0, 0, 100, 0.25)")
+    
+= stroke-fill(!hue = 202, !sat = 35)
+  :stroke-width 1px
+  :stroke-color gradient(hsb(!hue, !sat * 0.85, 72), hsb(!hue, !sat * 1.15, 58))
+  
+= inverted-stroke-fill(!hue = 202, !sat = 35)
+  :stroke-width 1px
+  :stroke-color gradient(hsb(!hue, !sat * 1.15, 58), hsb(!hue, !sat * 0.85, 72))
+    
+    
+input[type=range]#tint
+  :fill-color gradient("{0: hsb(301, 56, 62), 0.5: hsb(120, 5, 53), 1: hsb(120, 49, 57)}, 0")

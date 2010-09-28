@@ -1,0 +1,27 @@
+input[type="range"]
+  :height 3px
+  :margin-top 9px
+  :margin-bottom 6px
+  :min-width 93px
+  :width auto
+  :cursor pointer
+  :corner-radius 1
+  :fill-color gradient(hsb(0, 0, 70), hsb(0, 0, 84))
+  :stroke-color gradient(hsb(0, 0, 56), hsb(0, 0, 80))
+  :stroke-width 1px
+  thumb
+    :height 13px
+    :width 13px
+    :margin-top -6px
+    +gradient-fill
+    +stroke-fill
+    :corner-radius 6
+    :glyph glyph("radio")
+    :glyph-color hsb(201, 56, 50)
+    :glyph-top 4px
+    :glyph-scale 0.85
+    :glyph-left 4px
+    
+  &:focused
+    thumb
+      +focus-glow

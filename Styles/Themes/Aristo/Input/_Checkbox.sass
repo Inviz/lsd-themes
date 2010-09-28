@@ -1,0 +1,23 @@
+input[type=checkbox]
+  +inline-block
+  :vertical-align middle
+  :width 15px
+  :height 15px
+  :line-height 16px
+  :corner-radius 3
+  +gradient-fill
+  +stroke-fill
+  &:active
+    +inverted-gradient-fill
+    +inverted-stroke-fill
+  :glyph-color false
+  
+  &:focused
+    +focus-glow
+    
+  &:checked
+    :glyph glyph("checkMark")
+    :glyph-top 1px
+    :glyph-left 2px
+    :glyph-scale 1.6
+    :glyph-color hsb(201, 68, 34)

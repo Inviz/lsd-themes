@@ -1,0 +1,22 @@
+menu[type=context]
+  :fill-color hsb(0, 0, 96)
+  :shadow-blur 10
+  :shadow-color hsb(0, 0, 10)
+  :z-index 500
+  :corner-radius-top-left 2px
+  :corner-radius-top-right 2px
+  :corner-radius-bottom-left 2px
+  :corner-radius-bottom-right 2px
+  :padding-top 5px
+  :padding-bottom 5px
+  
+  .container:element
+    :font bold 14px/22px Arial
+    :padding 0 11px
+    
+  option
+    &:chosen
+      :background #5f83b9
+      .container:element
+        :color #fff
+        +light-emboss

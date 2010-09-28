@@ -1,0 +1,33 @@
+select
+  :height 22px
+  :width auto
+  :min-width 70px
+  :corner-radius-top-left 3px
+  :corner-radius-top-right 3px
+  :corner-radius-bottom-left 3px
+  :corner-radius-bottom-right 3px
+  +gradient-fill(0, 0)
+  +stroke-fill(0, 0)
+  
+  
+  > .container:element
+    :font bold 14px/22px Arial
+    +dark-emboss
+    :padding 0 10px
+    
+  &:focused
+    +focus-glow
+    
+  button
+    :width 22px
+    :height  22px
+    :margin-top -1px
+      :margin-right -1px
+    :corner-radius-top-right inherit
+    :corner-radius-bottom-right inherit
+    :float right
+    :glyph glyph("triangleDown")
+    :glyph-scale 0.75
+    :glyph-top 8px
+    :glyph-left 8px
+    :glyph-color hsb(202, 48, 51)
