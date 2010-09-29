@@ -113,21 +113,9 @@
         	      'button#revert.grey': 'Revert',
         	      'button#apply:disabled.last': 'Apply'
         	    }
-      	    },
-    	      'glyph[name=drag-handle][at=bottom right]#handle': {}
+      	    }
     	    }
-      	},
-
-      	options: {
-      	  resizer: {
-      	    crop: true
-      	  }
-      	},
-
-      	getHandle: function() {
-      	  return $(this.content.handle)
       	}
-
       });
       
 	    
@@ -142,9 +130,46 @@
 	    
 	    
 	    
+	    var Scrollable = new Class({  
+      	Includes: [
+          ART.Application,
+      	  ART.Widget.Trait.Draggable,
+      	  ART.Widget.Trait.Fitting,
+      	  Widget.Trait.Focus
+      	],
+      	
+      	events: {
+      	  element: {
+      	    mousedown: 'retain'
+      	  }
+      	},
+
+        expression: "window.aristo",
+
+      	layout: {
+      	  'section#header': {
+      	    'menu[type=toolbar][hoverable][shy]#buttons': {
+              'button#close': {},
+              'button#minimize': {},
+              'button#maximize': {}
+      	    },
+      	    '#title[container]': {}
+      	  },
+      	  'section#content[container][scrollable]': {
+    	      'glyph[name=drag-handle][at=bottom right]#handle': {}
+    	    }
+      	}
+
+      });
+      
 	    
-	    
-	    
+	    $b = new Scrollable
+			$b.content.setStyles({minHeight: 55, width: 300})
+	    $b.inject($d);	
+	    $b.setStyles({top: 50, left: 400, zIndex: 400})
+			$b.header.title.setContent('Scrollbars example')
+			$b.content.setContent(new Element('div', {'html': 'Orange box of truth (245x100)<br>Resize<br>Resize<br>Resize<br>Resize<br>Resize<br>Resize<br>Resize<br>Resize<br>Resize<br>Resize<br>', 'styles': {'background': 'orange', width: 245, height: 100, minHeight: 50}}))
+	    $b.fit()
 	    
 	    counter.current = {
 	      redraws: ART.Widget.Paint.redraws,

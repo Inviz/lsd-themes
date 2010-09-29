@@ -1,26 +1,35 @@
 scrollbar
-  :height 16px
-  :width 16px
+  :cursor pointer
+  :stroke-color hsb(0, 0, 0, 0.3)
+  :glyph-color hsb(82, 0, 100, 0.5)
+  :fill-color hsb(0, 0, 40, 0.5)
+  :corner-radius 6
   
-  &:horizontal
-    
+  button
+    :display none
+
+  &:horizontal 
     track
       :height 14px
-      :margin-left 16px
-      
-    
-  &:vertical
-  
+
+  &:vertical 
+    :width 12px
     track
-      :width 14px
-      :margin-top 16px
-    
+      :width 10px
+      
+  &:vertical 
+    :height 16px
+    :top 0
+    :right 0
+
+  &:horizontal 
+    :bottom 0
+    :left 0
+
   track
-    
     thumb
+      :fill-color hsb(0, 0, 100, 0.3)
+
       :width 12px
       :height 12px
-      
-      
-      &:active
-      
+      :corner-radius 6

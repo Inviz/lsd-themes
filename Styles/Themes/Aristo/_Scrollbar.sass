@@ -1,26 +1,62 @@
 scrollbar
-  :height 16px
-  :width 16px
+  :height 17px
+  :width 17px
+  :position absolute
+  :fill-color gradient("[hsb(202, 31, 82), hsb(202, 25, 97)]", 180)
+  
+  button
+    :height 17px
+    :stroke-width 0
+    :width 17px
+    :glyph-scale 0.8
+    :glyph-top 3
+    :glyph-left 5
+    :glyph-color hsb(202, 61, 45)
+    :fill-color false
+  track
+    :corner-radius-top-left 7
+    :corner-radius-top-right 7
+    :corner-radius-bottom-left 7
+    :corner-radius-bottom-right 7
+    
+  thumb
+    :fill-color gradient("[hsb(0, 0, 96), hsb(0, 0, 92)]", 180)
+    :corner-radius-top-left 5
+    :corner-radius-top-right 5
+    :corner-radius-bottom-left 5
+    :corner-radius-bottom-right 5
+    :shadow-offset-y 1px
+    :shadow-blur 1px
+    :shadow-color hsb(0, 0, 0)
   
   &:horizontal
     
     track
-      :height 14px
-      :margin-left 16px
-      
+      :height 17px
+      :margin-left 17px
     
   &:vertical
-  
-    track
-      :width 14px
-      :margin-top 16px
+    :right 0
+    :top 0
     
-  track
-    
+    button
+      :height 14px
+      :z-index 100
+      &#increment
+        :glyph glyph("triangleUp")
+        :top 0
+      &#decrement
+        :glyph glyph("triangleDown")
+        :bottom 0
+    track  
+      :z-index 105
+      :width 17px
+      :padding-top 2px
+      :padding-bottom 2px
+      :margin-top 17px
+      :fill-color gradient("[hsb(0, 0, 69), hsb(0, 0, 80), hsb(0, 0, 69)]", 180)
+      
     thumb
-      :width 12px
-      :height 12px
-      
-      
-      &:active
-      
+      :width 13px
+      :margin-left 2px
+      :margin-right 2px
