@@ -155,10 +155,10 @@ position: absolute;
 .art.scrollbar.is-vertical .art.button {
     height: 14px;
     z-index: 100; }
-html > body .art.scrollbar.is-vertical .art.button.id-increment {
+html > body .art.scrollbar.is-vertical .art.button.id-incrementor {
       -art-glyph: ART.Glyphs.triangleUp;
       top: 0; }
-html > body .art.scrollbar.is-vertical .art.button.id-decrement {
+html > body .art.scrollbar.is-vertical .art.button.id-decrementor {
       -art-glyph: ART.Glyphs.triangleDown;
       bottom: 0; }
 .art.scrollbar.is-vertical .art.track {

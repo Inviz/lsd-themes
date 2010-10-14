@@ -45,11 +45,11 @@
   		var HUD = new Class({  
       	Includes: [
           ART.Application,
-      	  ART.Widget.Trait.Draggable,
-      	  ART.Widget.Trait.Resizable,
-      	  ART.Widget.Trait.ResizableContainer,
-      	  ART.Widget.Trait.Fitting,
-      	  Widget.Trait.Focus
+      	  Widget.Trait.Focus.Stateful,
+      	  ART.Widget.Trait.Draggable.Stateful,
+      	  ART.Widget.Trait.Resizable.Stateful,
+      	  ART.Widget.Trait.Resizable.Container,
+      	  ART.Widget.Trait.Fitting
       	],
       	
       	events: {
