@@ -37,7 +37,11 @@ v\:*
   +clearfix
   
 .art
-  &.window
-    svg
-      ~ *:element, .container
-        :position relative
+  :position relative
+  > svg
+    :position absolute
+    :top 0
+    :left 0
+    ~ *:element
+      :position relative
+      

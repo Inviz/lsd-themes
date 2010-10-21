@@ -29,6 +29,10 @@
 
 	  }
 	</script>
+	
+	
+	
+	
 	<script src="../../lsd-examples/Scripts/includes.js"></script>
 	<!-- <script src="../Scripts/lsd.js"></script> -->
   
@@ -40,82 +44,6 @@
   		ART.Sheet.decompile('art', function() {
   		  
   		//ART.Sheet.compile();
-  		
-  		
-  		var HUD = new Class({  
-      	Includes: [
-          ART.Application,
-      	  Widget.Trait.Focus.Stateful,
-      	  ART.Widget.Trait.Draggable.Stateful,
-      	  ART.Widget.Trait.Resizable.Stateful,
-      	  ART.Widget.Trait.Resizable.Content,
-      	  ART.Widget.Trait.Fitting
-      	],
-      	
-      	events: {
-      	  element: {
-      	    mousedown: 'retain'
-      	  }
-      	},
-      	
-      	options: {
-      	  dragger: {
-      	    modifiers: {
-      	      y: null
-      	    }
-      	  }
-      	},
-
-        expression: "window.hud",
-
-      	layout: {
-      	  'section#header': {
-            'button#toggler[shy]': {},
-      	    'menu[type=toolbar][hoverable][shy]#buttons': {
-              'button#close': {}
-      	    },
-      	    '#title[container]': {}
-      	  },
-      	  'section#content[container][scrollable]': {
-      	    'form.two-column#appearance': {
-        	    'section#first.first': [
-        	      {'label[for=appearance]': 'Text input:'},
-        	      'input#appearance',
-        	    ],
-        	    'section#firstandhalf': [
-        	      {'label[for=appearance]': 'Slider:'},
-          	    'input[type=range]#count',
-        	      {'label[for=tint]': 'Tint:'},
-          	    'input[type=range]#tint'
-        	    ],
-        	    'section#third': [
-        	      {'label[for=selectbox]': 'Selectbox:'},
-        	      'select#selectbox'
-        	    ],
-        	    'section#fourth.centered': [
-      	        'input[type=checkbox]#checkbox',
-        	      {'label.inline[for=checkbox]': 'You\'re feeiling alright?'}
-        	    ],
-        	    'section#tos[scrollable=true][height=content - 240]': '<div style="height: 200px;">Test</div>',
-        	    'section#buttons.last': [
-        	      {'button#reset': 'Reset'}
-        	    ]
-      	    },
-    	      'glyph[name=drag-handle][at=bottom right]#handle': {}
-    	    }
-      	},
-
-      	options: {
-      	  resizer: {
-      	    crop: true
-      	  }
-      	},
-
-      	getHandle: function() {
-      	  return $(this.content.handle)
-      	}
-
-      });
       
   		
   		
@@ -129,13 +57,8 @@
 	      widgets: ART.Widget.count
 	    }
 	    if (window.console && console.profile) console.profile('HUD render')
-	    $z = new HUD();
-			$z.content.setStyles({minHeight: 285, width: 200})
-	    $z.inject($d);	
-	    $z.setStyles({top: 50, left: 50, zIndex: 400})
-			$z.header.title.setContent('HUD Window')
+	    $z = ART.Layout.replace(document.getElement('window.hud'));
 	    if (window.console && console.profile) console.profileEnd('HUD render')
-			//$z.fit();
 	    
 	    
 	    
@@ -157,6 +80,47 @@
 	  });
 	</script>
 </head>
-<body>
+<body><window class='hud' id='demo' draggable='draggable' resizable-content='resizable-content' resizable='resizable' style='top: 50px; left: 50px; z-index: 400'>
+  <section id='header'>
+    <menu hoverable='hoverable' id='buttons' shy='shy' type='toolbar'>
+      <button id='close'></button>
+    </menu>
+    <div container='container' id='title'>HUD Interface</div>
+  </section>
+  <section container='container' id='content' style='max-height: 300px; min-height: 210px; max-width: 300px'>
+    <form class='two-column' id='appearance'>
+      <section class='first'>
+        <label for='appearance'>Text input:</label>
+        <input id='appearance' />
+      </section>
+      <section>
+        <label for='count'>Slider:</label>
+        <input id='count' type='range' />
+        <label for='tint'>Tint:</label>
+        <input id='tint' type='range' />
+      </section>
+      <section>
+        <label for='selectbox'>Selectbox:</label>
+        <select id='selectbox'>
+          <option inherit='partial'>First</option>
+          <option inherit='partial'>Second</option>
+          <option inherit='partial'>Third</option>
+        </select>
+      </section>
+      <section class='centered'>
+        <input id='checkbox' type='checkbox' />
+        <label class='inline' for='checkbox'>Are you feeling alright?</label>
+      </section>
+      <section class='last' id='buttons'>
+        <button id='reset'>Reset</button>
+      </section>
+    </form>
+    <glyph at='bottom right' id='handle' name='drag-handle'></glyph>
+  </section>
+</window>
+
+  
+  
+  
 </body>
 </html>

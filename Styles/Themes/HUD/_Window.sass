@@ -17,6 +17,8 @@ window
   :line-height 16px
   :font-family Helvetica
   :font-size 11px
+  &[draggable]
+    :position absolute
   
   input, textarea, button, select
     :shadow-blur 1px
@@ -43,6 +45,7 @@ window
       :float left
       :width 100%
       :font-size 11.5px
+      :z-index 10
       .container:element
         :padding-top 2px
         :line-height 16px
@@ -53,6 +56,7 @@ window
     #buttons
       :float left
       :padding 0 4px
+      :z-index 20
       button
         +inline-block
         :margin-top 2px

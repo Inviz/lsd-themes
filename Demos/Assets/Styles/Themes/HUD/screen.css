@@ -85,7 +85,8 @@ padding-bottom: 5px;
 -art-corner-radius-top-left: 3px;
 -art-corner-radius-top-right: 3px;
 -art-corner-radius-bottom-left: 3px;
--art-corner-radius-bottom-right: 3px; }
+-art-corner-radius-bottom-right: 3px;
+position: absolute; }
 .art.menu[type=context].is-active {
   -art-stroke-color: "[hsb(0, 0, 50), hsb(0, 0, 20)]"; }
 .art.menu[type=context] .art.option > .container {
@@ -211,6 +212,8 @@ height: auto;
 line-height: 16px;
 font-family: Helvetica;
 font-size: 11px; }
+.art.window[draggable] {
+  position: absolute; }
 .art.window .art.input, .art.window .art.textarea, .art.window .art.button, .art.window .art.select {
   -art-shadow-blur: 1px;
   -art-shadow-offset-y: 1px;
@@ -233,7 +236,8 @@ html > body .art.window .art.id-header {
 html > body .art.window .art.id-header .art.id-title {
     float: left;
     width: 100%;
-    font-size: 11.5px; }
+    font-size: 11.5px;
+    z-index: 10; }
 html > body .art.window .art.id-header .art.id-title .container {
       padding-top: 2px;
       line-height: 16px;
@@ -242,7 +246,8 @@ html > body .art.window .art.id-header .art.id-title .container {
       text-align: center; }
 html > body .art.window .art.id-header .art.id-buttons {
     float: left;
-    padding: 0 4px; }
+    padding: 0 4px;
+    z-index: 20; }
 html > body .art.window .art.id-header .art.id-buttons .art.button {
       zoom: 1;
       display: inline;
@@ -390,5 +395,11 @@ visibility: hidden;
 _display: block;
 zoom: 1; }
 
-.art.window svg ~ *, .art.window svg .container {
+.art {
 position: relative; }
+.art > svg {
+  position: absolute;
+  top: 0;
+  left: 0; }
+.art > svg ~ * {
+    position: relative; }

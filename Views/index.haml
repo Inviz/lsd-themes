@@ -1,0 +1,31 @@
+%window.hud{:style => "top: 50px; left: 50px; z-index: 400", :draggable => true, :resizable => true, :"resizable-content" => true}
+  %section#header
+    %menu#buttons{:shy => true, :hoverable => true, :type => :toolbar}
+      %button#close
+    #title{:container => true} HUD Interface
+  %section#content{:container => true, :style => "mi-height: 220px; min-height: 210px; max-width: 300px"}
+    %form.two-column#appearance
+      %section.first
+        %label{:for => "appearance"} Text input:
+        %input#appearance
+      
+      %section
+        %label{:for => "count"} Slider:
+        %input#count{:type => :range}
+        %label{:for => "tint"} Tint:
+        %input#tint{:type => :range}
+      
+      %section
+        %label{:for => "selectbox"} Selectbox:
+        %select#selectbox
+          %option{:inherit => "partial"} First
+          %option{:inherit => "partial"} Second
+          %option{:inherit => "partial"} Third
+          
+      %section.centered
+        %input#checkbox{:type => :checkbox}
+        %label.inline{:for => "checkbox"} Are you feeling alright?
+        
+      %section#buttons.last
+        %button#reset Reset
+    %glyph#handle{:name => "drag-handle", :at => "bottom right"}
