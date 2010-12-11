@@ -1,21 +1,21 @@
  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<title>ART Demo</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<script>
-		window.prefix = '../../lsd-examples/Demos/';
-	  if (location.host.indexOf('github') > -1) {
-	    window.loader = function(src) {
-	      src = src.replace(/^.*(lsd|lsd-base|lsd-examples|mootools-ext)\//, 'http://inviz.github.com/$1/').
-      	          replace(/^.*(qfocuser|cssparser)\//, 'http://github.com/inviz/$1/raw/master/').
-      	          replace(/^.*(..\/..\/..\/Source)\//, 'http://inviz.github.com/lsd/Source/').
-      	          replace(/^.*(..\/..\/Source)\//, 'http://inviz.github.com/lsd-examples/Source/').
-      	          replace(/^.*(mootools-core|mootools-more)\//, 'http://github.com/mootools/$1/raw/master/').
-                	replace(/^.*(mootools-color|mootools-touch|art)\//, 'http://github.com/kamicane/$1/raw/master/')
-	         
-	      document.write('<scr' + 'ipt src="' + (prefix || '') + src + '"></sc' + 'ript>');
-	    }
+  <title>LSD Demo</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <script>
+    window.prefix = '../../lsd-examples/Demos/';
+    if (location.host.indexOf('github') > -1) {
+      window.loader = function(src) {
+        src = src.replace(/^.*(lsd|lsd-base|lsd-examples|mootools-ext)\//, 'http://inviz.github.com/$1/').
+                  replace(/^.*(qfocuser|cssparser)\//, 'http://github.com/inviz/$1/raw/master/').
+                  replace(/^.*(..\/..\/..\/Source)\//, 'http://inviz.github.com/lsd/Source/').
+                  replace(/^.*(..\/..\/Source)\//, 'http://inviz.github.com/lsd-examples/Source/').
+                  replace(/^.*(mootools-core|mootools-more)\//, 'http://github.com/mootools/$1/raw/master/').
+                  replace(/^.*(mootools-color|mootools-touch|art)\//, 'http://github.com/kamicane/$1/raw/master/')
+           
+        document.write('<scr' + 'ipt src="' + (prefix || '') + src + '"></sc' + 'ript>');
+      }
 
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-18508300-1']);
@@ -27,165 +27,147 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
 
-	  }
-	</script>
-	<script src="../../lsd-examples/Scripts/includes.js"></script>
-	<!-- <script src="../Scripts/lsd.js"></script> -->
+    }
+  </script>
+  <script src="../../lsd-examples/Scripts/includes.js"></script>
+  <!-- <script src="../Scripts/lsd.js"></script> -->
   
-	<link rel="art stylesheet" href="./Assets/Styles/Themes/Aristo/screen.css">
-	<!-- <link rel="art stylesheet" href="./Assets/Styles/Themes/Aristo/screen.css"> -->
+  <link rel="lsd stylesheet" href="./Assets/Styles/Themes/Aristo/screen.css">
+  <!-- <link rel="lsd stylesheet" href="./Assets/Styles/Themes/Aristo/screen.css"> -->
   <!-- 
-	<link rel="art stylesheet" href="../../lsd-examples/Demos/Assets/Styles/Widgets.css">
-	<link rel="art stylesheet" href="../../lsd-examples/Demos/Assets/Styles/Widgets.css">
-	<link rel="art stylesheet" href="../../lsd-examples/Demos/Assets/Styles/Widgets.css">
-	-->
-	
-	<style>
-	  html, body {
-	    background: url(hztp://img.skitch.com/20100913-cddxp3qi29bphck9iuartyce8b.png);
-	  }
-	</style>
-	<script>
-	  window.addEvent('domready', function() {
-  		
-  		ART.Sheet.decompile('art', function() {
-  		  
-  		//ART.Sheet.compile();
-  		
-  		
-  		
+  <link rel="lsd stylesheet" href="../../lsd-examples/Demos/Assets/Styles/Widgets.css">
+  <link rel="lsd stylesheet" href="../../lsd-examples/Demos/Assets/Styles/Widgets.css">
+  <link rel="lsd stylesheet" href="../../lsd-examples/Demos/Assets/Styles/Widgets.css">
+  -->
+  
+  <style>
+    html, body {
+      background: url(hztp://img.skitch.com/20100913-cddxp3qi29bphck9iuartyce8b.png);
+    }
+  </style>
+  <script>
+    window.addEvent('domready', function() {
+      
+      LSD.Sheet.decompile('lsd', function() {
+        
+      //LSD.Sheet.compile();
+      
+      
+      
       if (window.$d) return;
-      $d = new ART.Document
-  		
-	    var counter = {}
-	    counter.old = {
-	      redraws: ART.Widget.Paint.redraws,
-	      widgets: ART.Widget.count
-	    }
-	    
-	    
-	    
-	    var Aristo = new Class({  
-      	Includes: [
-          ART.Application,
-      	  ART.Widget.Trait.Draggable.Stateful,
-      	  Widget.Trait.Focus.Stateful,
-      	  ART.Widget.Trait.Fitting
-      	],
-      	
-      	events: {
-      	  element: {
-      	    mousedown: 'retain'
-      	  }
-      	},
-
-        expression: "window.aristo",
-
-      	layout: {
-      	  'section#header': {
-      	    'menu[type=toolbar][hoverable][shy]#buttons': {
-              'button#close': {},
-              'button#minimize': {},
-              'button#maximize': {}
-      	    },
-      	    '#title[container]': {}
-      	  },
-      	  'section#content[container][scrollable]': {
-      	    'form.two-column#appearance': {
-        	    'section#first.first': [
-        	      {'label[for=appearance]': 'Text input:'},
-        	      'input#appearance',
-        	    ],
-        	    'section#firstandhalf': [
-        	      {'label[for=appearance]': 'Slider:'},
-          	    'input[type=range]#count'
-        	    ],
-        	    'section#third': [
-        	      {'label[for=selectbox]': 'Selectbox:'},
-        	      'select#selectbox'
-        	    ],
-        	    'section#fourth.centered': [
-      	        'input[type=checkbox]#checkbox',
-        	      {'label.inline[for=checkbox]': 'You\'re feeiling alright?'}
-        	    ],
-        	    'section#buttons.last[hoverable]': {
-        	      'button#reset.first': 'Reset',
-        	      'button#revert.grey': 'Revert',
-        	      'button#apply:disabled.last': 'Apply'
-        	    }
-      	    }
-    	    }
-      	}
+      $d = new LSD.Document
+      
+      var counter = {}
+      counter.old = {
+        redraws: LSD.Widget.Paint.redraws,
+        widgets: LSD.Widget.count
+      }
+      
+      
+      
+      var Aristo = new Class({  
+        Includes: [
+          LSD.Application,
+          LSD.Widget.Trait.Draggable.Stateful,
+          Widget.Trait.Focus.Stateful,
+          LSD.Widget.Trait.Fitting
+        ],
+        
+        options: {
+          events: {
+            element: {
+              mousedown: 'retain'
+            }
+          },
+          layout: {
+            self: "window.aristo",
+            children: {
+              'section#header': {
+                'menu[type=toolbar][hoverable][shy]#buttons': {
+                  'button#close': {},
+                  'button#minimize': {},
+                  'button#maximize': {}
+                },
+                '#title[container]': {}
+              },
+              'section#content[container][scrollable]': {
+                'form.two-column#appearance': {
+                  'section#first.first': [
+                    {'label[for=appearance]': 'Text input:'},
+                    'input#appearance',
+                  ],
+                  'section#firstandhalf': [
+                    {'label[for=appearance]': 'Slider:'},
+                    'input[type=range]#count'
+                  ],
+                  'section#third': [
+                    {'label[for=selectbox]': 'Selectbox:'},
+                    'select#selectbox'
+                  ],
+                  'section#fourth.centered': [
+                    'input[type=checkbox]#checkbox',
+                    {'label.inline[for=checkbox]': 'You\'re feeiling alright?'}
+                  ],
+                  'section#buttons.last[hoverable]': {
+                    'button#reset.first': 'Reset',
+                    'button#revert.grey': 'Revert',
+                    'button#apply:disabled.last': 'Apply'
+                  }
+                }
+              }
+            }
+          }
+        },
+        
+        
       });
       
-	    
-	    
-	    if (window.console && console.profile) console.profile('Aristo render')
-	    $a = new Aristo();
-			$a.content.setStyles({minHeight: 205, width: 300})
-	    $a.inject($d);	
-	    $a.setStyles({top: 50, left: 50, zIndex: 400})
-			$a.header.title.setContent('Aristo')
-	    if (window.console && console.profile) console.profileEnd('Aristo render')
-	    
-	    
-	    
-	    var Scrollable = new Class({  
-      	Includes: [
-          ART.Application,
-      	  ART.Widget.Trait.Draggable.Stateful,
-      	  Widget.Trait.Focus.Stateful,
-      	  ART.Widget.Trait.Fitting
-      	],
-      	
-      	events: {
-      	  element: {
-      	    mousedown: 'retain'
-      	  }
-      	},
-
-        expression: "window.aristo",
-
-      	layout: {
-      	  'section#header': {
-      	    'menu[type=toolbar][hoverable][shy]#buttons': {
-              'button#close': {},
-              'button#minimize': {},
-              'button#maximize': {}
-      	    },
-      	    '#title[container]': {}
-      	  },
-      	  'section#content[container][scrollable]': {
-    	      'glyph[name=drag-handle][at=bottom right]#handle': {}
-    	    }
-      	}
-
+      var Scrollable = new Class({  
+        Includes: [
+          LSD.Application,
+          LSD.Widget.Trait.Draggable.Stateful,
+          Widget.Trait.Focus.Stateful,
+          LSD.Widget.Trait.Fitting
+        ],
+        
+        options: {
+          events: {
+            element: {
+              mousedown: 'retain'
+            }
+          },
+          layout: {
+            self: "window.aristo",
+            children: {
+              'section#header': {
+                'menu[type=toolbar][hoverable][shy]#buttons': {
+                  'button#close': {},
+                  'button#minimize': {},
+                  'button#maximize': {}
+                },
+                '#title[container]': {}
+              },
+              'section#content[container][scrollable]': {
+                'glyph[name=drag-handle][at=bottom right]#handle': {}
+              }
+            }
+          }
+        }
       });
       
-	    
-	    $b = new Scrollable
-			$b.content.setStyles({minHeight: 55, width: 300})
-	    $b.inject($d);	
-	    $b.setStyles({top: 50, left: 400, zIndex: 400})
-			$b.header.title.setContent('Scrollbars example')
-			$b.content.setContent(new Element('div', {'html': 'Orange box of truth (245x100)<br>Resize<br>Resize<br>Resize<br>Resize<br>Resize<br>Resize<br>Resize<br>Resize<br>Resize<br>Resize<br>', 'styles': {'background': 'orange', width: 245, height: 100, minHeight: 50}}))
-	    $b.fit()
-	    
-	    counter.current = {
-	      redraws: ART.Widget.Paint.redraws,
-	      widgets: ART.Widget.count
-	    }
-	    counter.delta = {
-	      redraws: counter.current.redraws - counter.old.redraws,
-	      widgets: counter.current.widgets - counter.old.widgets,
-	    }
-	    
-	    console.info('Widgets: ', counter.delta.widgets, 'Redraws: ', counter.delta.redraws)
-	    
-		});
-  		
-	  });
-	</script>
+      
+      $b = new Scrollable
+      $b.content.setStyles({minHeight: 55, width: 300})
+      $b.inject($d);  
+      $b.setStyles({top: 50, left: 400, zIndex: 400})
+      $b.header.title.setContent('Scrollbars example')
+      $b.content.setContent(new Element('div', {'html': 'Orange box of truth (245x100)<br>Resize<br>Resize<br>Resize<br>Resize<br>Resize<br>Resize<br>Resize<br>Resize<br>Resize<br>Resize<br>', 'styles': {'background': 'orange', width: 245, height: 100, minHeight: 50}}))
+      $b.fit()
+      
+    });
+      
+    });
+  </script>
 </head>
 <body>
 </body>

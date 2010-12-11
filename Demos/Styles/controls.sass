@@ -1,0 +1,29 @@
+@import ../../Styles/Mixin/Base
+
+body, html, body > ul
+  :padding 0
+  :margin 0
+
+ul.controls
+  > li
+    +inline-block
+    :vertical-align top
+    :width 8em
+    :height 8em
+    :padding 1em
+    :background #eee
+    :border 2px solid #ccc
+    :position relative
+    :border-radius 0.5em
+    :-moz-border-radius 0.5em
+    :-webkit-border-radius 0.5em
+    :margin 0.5em
+    :text-align center 
+    span.label
+      :position absolute
+      :width 10em
+      :margin-left -5em
+      :left 50%
+      :bottom 1em
+      :font bold 0.8em Helvetica
+      +dark-emboss

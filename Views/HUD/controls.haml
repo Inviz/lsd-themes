@@ -1,14 +1,15 @@
 !!!
 %head
-  %title Aristo Theme controls
+  %title HUD Theme controls
   :javascript
     window.prefix = '../../../lsd-examples/Demos/';
   %script{:src => "../../../lsd-examples/Scripts/includes.js"}
-  %link{:rel => "stylesheet lsd", :href => "../Assets/Styles/Themes/Aristo/screen.css"}
+  %link{:rel => "stylesheet lsd", :href => "../Assets/Styles/Themes/HUD/screen.css"}
   %link{:rel => "stylesheet", :href => "../Assets/Styles/controls.css"}
   :javascript
     window.addEvent('domready', function() {
       LSD.Sheet.decompile('lsd', function() {
+        new LSD.Document;
         $$('button', 'select', 'input', 'menu').each(LSD.Layout.replace)
       })
     })

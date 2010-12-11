@@ -1,23 +1,23 @@
-.art.form.two-column .art.label, .art.form.two-column .art.input {
+.lsd.form.two-column .lsd.label, .lsd.form.two-column .lsd.input {
 float: left; }
 
-.art.scrollbar {
+.lsd.scrollbar {
 height: 16px;
 width: 16px; }
-.art.scrollbar.is-horizontal .art.track {
+.lsd.scrollbar.is-horizontal .lsd.track {
   height: 14px;
   margin-left: 16px; }
-.art.scrollbar.is-vertical .art.track {
+.lsd.scrollbar.is-vertical .lsd.track {
   width: 14px;
   margin-top: 16px; }
-.art.scrollbar .art.track .art.thumb {
+.lsd.scrollbar .lsd.track .lsd.thumb {
   width: 12px;
   height: 12px; }
 
-.art.section {
+.lsd.section {
 width: inherit; }
 
-.art.section:after {
+.lsd.section:after {
 content: ".";
 display: block;
 height: 0px;
@@ -26,14 +26,14 @@ visibility: hidden;
 _display: block;
 zoom: 1; }
 
-.art.select {
+.lsd.select {
 height: 18px;
 width: auto; }
-.art.select .art.button {
+.lsd.select .lsd.button {
   width: 18px;
   height: 18px; }
 
-.art.input, .art.textarea {
+.lsd.input, .lsd.textarea {
 height: 18px;
 width: 170px; }
 
@@ -43,10 +43,10 @@ display: block; }
 v\:* {
 background: transparent; }
 
-.art.* {
--art-shadow-blur: 0; }
+.lsd.* {
+-lsd-shadow-blur: 0; }
 
-.art:after {
+.lsd:after {
 content: ".";
 display: block;
 height: 0px;

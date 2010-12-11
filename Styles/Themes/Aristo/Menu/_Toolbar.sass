@@ -1,0 +1,25 @@
+menu[type=toolbar]
+  
+  button
+    :height 24px
+    > .container:element
+      :padding 0 0.3em
+      
+  &.segmented
+    button
+      > .container:element
+        :padding-left 10px
+        :padding-right 10px
+      :corner-radius-top-left 0
+      :corner-radius-top-right 0
+      :corner-radius-bottom-left 0
+      :corner-radius-bottom-right 0
+      :margin-right -2px
+      
+      &.first
+        :corner-radius-top-left 3px
+        :corner-radius-bottom-left 3px
+        
+      &.last
+        :corner-radius-top-right 3px
+        :corner-radius-bottom-right 3px

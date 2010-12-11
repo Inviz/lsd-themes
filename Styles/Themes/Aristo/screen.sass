@@ -32,11 +32,16 @@ v\:*
 *
   :shadow-blur 0
   
-.art:element
+.lsd:element
   +clearfix
+
+.lsd
+  :position relative
+  :text-align left
   
-.art
-  &.window
-    svg
-      ~ *:element, .container
-        :position relative  
+  > svg
+    :position absolute
+    :top 0
+    :left 0
+    ~ *:element
+      :position relative

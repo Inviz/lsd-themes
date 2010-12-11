@@ -1,7 +1,7 @@
  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<title>ART Demo</title>
+	<title>LSD Demo</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<script>
 		window.prefix = '../../lsd-examples/Demos/';
@@ -36,44 +36,23 @@
 	<script src="../../lsd-examples/Scripts/includes.js"></script>
 	<!-- <script src="../Scripts/lsd.js"></script> -->
   
-	<link rel="art stylesheet" href="./Assets/Styles/Themes/HUD/screen.css">
+	<link rel="lsd stylesheet" href="./Assets/Styles/Themes/HUD/screen.css">
 	
 	<script>
 	  window.addEvent('domready', function() {
   		
-  		ART.Sheet.decompile('art', function() {
+  		LSD.Sheet.decompile('lsd', function() {
   		  
-  		//ART.Sheet.compile();
+  		//LSD.Sheet.compile();
       
   		
   		
   		
       if (window.$d) return;
-      $d = new ART.Document
-  		
-	    var counter = {}
-	    counter.old = {
-	      redraws: ART.Widget.Paint.redraws,
-	      widgets: ART.Widget.count
-	    }
+      $d = new LSD.Document
 	    if (window.console && console.profile) console.profile('HUD render')
-	    $z = ART.Layout.replace(document.getElement('window.hud'));
+	    $z = LSD.Layout.replace(document.getElement('window.hud'));
 	    if (window.console && console.profile) console.profileEnd('HUD render')
-	    
-	    
-	    
-	    
-	    
-	    counter.current = {
-	      redraws: ART.Widget.Paint.redraws,
-	      widgets: ART.Widget.count
-	    }
-	    counter.delta = {
-	      redraws: counter.current.redraws - counter.old.redraws,
-	      widgets: counter.current.widgets - counter.old.widgets,
-	    }
-	    
-	    console.info('Widgets: ', counter.delta.widgets, 'Redraws: ', counter.delta.redraws)
 	    
 		});
   		

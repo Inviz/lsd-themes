@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head>
+  <title>Aristo Theme controls</title>
+  <script type='text/javascript'>
+    //<![CDATA[
+      window.prefix = '../../../lsd-examples/Demos/';
+    //]]>
+  </script>
+  <script src='../../../lsd-examples/Scripts/includes.js'></script>
+  <link href='../Assets/Styles/Themes/Aristo/screen.css' rel='stylesheet art' />
+  <link href='../Assets/Styles/controls.css' rel='stylesheet' />
+  <script type='text/javascript'>
+    //<![CDATA[
+      window.addEvent('domready', function() {
+        LSD.Sheet.decompile('lsd', function() {
+          new LSD.Document;
+          $$('li > button', 'select', 'input', 'menu').each(LSD.Layout.replace)
+        })
+      })
+    //]]>
+  </script>
+</head>
+<body>
+  <ul class='controls'><li>
+      <button>Cancel</button>
+      <span class='label'>Button</span>
+    </li><li>
+      <button class='default'>OK</button>
+      <span class='label'>Default button</span>
+    </li><li>
+      <select>
+        <option inherit='partial'>Pop up</option>
+        <option inherit='partial'>Item</option>
+      </select>
+      <span class='label'>Selectbox</span>
+    </li><li>
+      <select menu-position='bottom'>
+        <option inherit='partial'>Pop up</option>
+        <option inherit='partial'>Item</option>
+      </select>
+      <span class='label'>Dropdown selectbox</span>
+    </li><li>
+      <input />
+      <span class='label'>Standart text field</span>
+    </li><li>
+      <input class='round' />
+      <span class='label'>Rounded text field</span>
+    </li><li>
+      <input id='hello' type='checkbox' />
+      <label for='hello'>Hello friend!</label>
+      <span class='label'>Checkbox</span>
+    </li><li>
+      <input id='another' type='radio' />
+      <label for='another'>Another option</label>
+      <span class='label'>Radio button</span>
+    </li><li>
+      <menu class='segmented' type='toolbar'>
+        <button class='first'>Foo</button>
+        <button>Bar</button>
+        <button class='last'>1</button>
+      </menu>
+      <span class='label'>Segmented buttons</span>
+    </li><li>
+      <input type='range' />
+      <span class='label'>Range input</span>
+    </li></ul>
+</body>

@@ -1,0 +1,27 @@
+ul.controls > li {
+  zoom: 1;
+  display: inline;
+  display: -moz-inline-box;
+  display: inline-block;
+  *display: inline;
+  vertical-align: top;
+  width: 8em;
+  height: 8em;
+  padding: 1em;
+  background: #eeeeee;
+  border: 2px solid #cccccc;
+  position: relative;
+  border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+  margin: 0.5em;
+  text-align: center; }
+  ul.controls > li span.label {
+    position: absolute;
+    width: 10em;
+    margin-left: -5em;
+    left: 50%;
+    bottom: 1em;
+    font: bold 0.8em Helvetica;
+    text-shadow: 0 1px 0 #e5e5ee;
+    filter: dropshadow(color=#e5e5ee, offX=0, offY=1px); }
