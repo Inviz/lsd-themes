@@ -66,19 +66,9 @@
       
       
       var Aristo = new Class({  
-        Includes: [
-          LSD.Application,
-          LSD.Widget.Trait.Draggable.Stateful,
-          Widget.Trait.Focus.Stateful,
-          LSD.Widget.Trait.Fitting
-        ],
+        Extends: LSD.Application
         
         options: {
-          events: {
-            element: {
-              mousedown: 'retain'
-            }
-          },
           layout: {
             self: "window.aristo",
             children: {
@@ -123,19 +113,9 @@
       });
       
       var Scrollable = new Class({  
-        Includes: [
-          LSD.Application,
-          LSD.Widget.Trait.Draggable.Stateful,
-          Widget.Trait.Focus.Stateful,
-          LSD.Widget.Trait.Fitting
-        ],
+        Extends: LSD.Application,
         
         options: {
-          events: {
-            element: {
-              mousedown: 'retain'
-            }
-          },
           layout: {
             self: "window.aristo",
             children: {
